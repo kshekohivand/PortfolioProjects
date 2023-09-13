@@ -1,3 +1,0 @@
-[submodule "Data_Wave"]
-path = Data_Wave
-url = https://github.com/kshekohivand/Data_Wave
