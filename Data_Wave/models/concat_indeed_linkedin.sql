@@ -1,0 +1,46 @@
+SELECT 
+    info_source,
+    job_title,
+    job_title_category,
+    company,
+    location,
+    posted_date,
+    job_function,
+    salary,
+    job_type,
+    hierarchy,
+    sector,
+    whole_desc,
+    contract_type,
+    work_type,
+    location_city AS ville,
+    latitude,
+    longitude,
+    departement,
+    region,
+    if (location_city is not null, "france","") as country
+FROM {{ ref("cl_linkedin_end") }}
+
+UNION ALL
+SELECT
+    info_source,
+    job_title,
+    job_title_category,
+    company,
+    location,
+    posted_date,
+    job_function,
+    salary,
+    job_type,
+    hierarchy,
+    sector,
+    whole_desc,
+    contract_type,
+    work_type,
+    location_city AS ville,
+    latitude,
+    longitude,
+    departement,
+    region,
+    if (location_city is not null, "france","") as country
+FROM {{ ref("cl_indeed_end") }}
